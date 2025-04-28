@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import './assets/styles/styles.scss'
 import { RouterView, useRoute } from 'vue-router'
 import MainLayout from '@/layout/MainLayout.vue'
@@ -8,18 +9,17 @@ const route = useRoute()
 
 console.log(route)
 
-const isAuthLayout = route.meta.layout === 'auth' ? true : false
+const layout = computed(() => {
+  if (route.meta.layout === 'auth') {
+    return AuthLayout
+  } else {
+    return MainLayout
+  }
+})
 </script>
 
 <template>
-  <div v-if="isAuthLayout">
-    <AuthLayout>
-      <RouterView />
-    </AuthLayout>
-  </div>
-  <div v-else>
-    <MainLayout>
-      <RouterView />
-    </MainLayout>
-  </div>
+  <component :is="layout">
+    <RouterView />
+  </component>
 </template>
