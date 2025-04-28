@@ -1,5 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const title = 'Home'
+</script>
 
 <template>
-  <main></main>
+  <TitlePage :title="title" />
+  <!-- <TitlePage title="Home" /> -->
 </template>
