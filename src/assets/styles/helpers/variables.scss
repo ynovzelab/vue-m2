@@ -2,3 +2,9 @@
   --font-primary: Roboto, sans-serif;
   --font-secondary: Sansation, sans-serif;
 }
+
+$mainfont: 'Roboto';
+
+body {
+  font-family: $mainfont;
+}
